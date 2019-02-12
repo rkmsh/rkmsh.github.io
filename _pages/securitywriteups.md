@@ -1,5 +1,5 @@
 ---
-layout: posts
+layout: archive
 permalink: /security-writeups/
 title: "Security WriteUps Posts by tags"
 header:
