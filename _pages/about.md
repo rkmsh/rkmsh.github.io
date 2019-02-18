@@ -2,7 +2,7 @@
 title: "About"
 permalink: /about/
 header:
-    image: "/assets/images/wall2.png"
+    overlay_image: "/assets/images/wall2.png"
 ---
 
 Hello Everyone!!!
