@@ -11,7 +11,7 @@ comments: true
 
 Hello # Google
 
-```console
+```python
 root@kali:~# ping google.com -c 2
 PING google.com(del03s06-in-x0e.1e100.net (2404:6800:4002:805::200e)) 56 data bytes
 64 bytes from del03s06-in-x0e.1e100.net (2404:6800:4002:805::200e): icmp_seq=2 ttl=55 time=74.0 ms
