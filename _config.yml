@@ -107,7 +107,7 @@ analytics:
 # Site Author
 author:
   name             : "Rohit Mahato"
-  avatar           : "/assets/images/avatar.jpeg"# path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/images/PortFolio.jpeg"# path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "I like to PWN things. Very passionate in Cyber Security."
   location         : "India"
   email            : "rohitshmahato@gmail.com"
