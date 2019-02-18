@@ -19,7 +19,7 @@ locale                   : "en-US"
 title                    : "Let's PWN"
 title_separator          : "-"
 name                     : "Rohit Mahato"
-description              : "Personal Website for helping others."
+description              : "Hacking and Cracking."
 url                      : "https://rkmsh.github.io"# the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "rkmsh"# GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -28,7 +28,6 @@ logo                     : # path of logo image to display in the masthead, e.g.
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
-search                   : true
 comments:
   provider               : # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "staticman_v2", "utterances", "custom"
   disqus:
@@ -67,7 +66,7 @@ atom_feed:
   path                   : # blank (default) uses feed.xml
 search                   : "true"# true, false (default)
 search_full_content      : "true"# true, false (default)
-search_provider          : # lunr (default), algolia, google
+search_provider          : lunr (default), algolia, google
 algolia:
   application_id         : # YOUR_APPLICATION_ID
   index_name             : # YOUR_INDEX_NAME
