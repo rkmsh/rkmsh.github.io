@@ -1,5 +1,6 @@
 ---
 layout: single
+date: 2019-02-18
 title: "Google CTF-2018"
 header:
     overlay_image: '/assets/images/ZenBGR.png'
