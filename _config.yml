@@ -16,9 +16,9 @@ minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Rohit Mahato"
+title                    : "Let's PWN"
 title_separator          : "-"
-name                     : "Let's PWN"
+name                     : "Rohit Mahato"
 description              : "Personal Website for helping others."
 url                      : "https://rkmsh.github.io"# the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
