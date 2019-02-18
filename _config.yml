@@ -108,9 +108,9 @@ analytics:
 author:
   name             : "Rohit Mahato"
   avatar           : "/assets/images/avatar.jpeg"# path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Very Passionate in the field of security."
-  location         : "India, Ranchi"
-  email            :
+  bio              : "I like to PWN things. Very passionate in Cyber Security."
+  location         : "India"
+  email            : "rohitshmahato@gmail.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
