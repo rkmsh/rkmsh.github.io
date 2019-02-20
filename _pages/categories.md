@@ -11,4 +11,5 @@ permalink: /categories/
 <h2>VulnHub</h2>
 <ul>
   <li><a href="https://rkmsh.github.io/mr_robot1/">VulnHub-Mr.Robot-1</a></li>
+  <li><a href="https://rkmsh.github.io/Stapler_1/">VulnHub Stapler:1</a></li>
 </ul>
