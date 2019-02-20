@@ -110,11 +110,11 @@ author:
   avatar           : "/assets/images/PortFolio.jpeg"# path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "I like to PWN things. Very passionate about Cyber Security."
   location         : "India"
-  # email            : "rohitshmahato@gmail.com"
+  # email            : ""
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      # url: mailto:rohitshmahato@gmail.com
+      url: mailto:rohitshmahato@gmail.com
     - label: "Website"
       icon: "fas fa-fw fa-link"
       url: "https://rkmsh.github.io"
