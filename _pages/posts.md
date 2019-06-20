@@ -3,7 +3,7 @@ layout: single
 author_profile: true
 title: Posts
 header:
-  overlay_image: /assets/images/mf.png
+  overlay_image: /assets/images/post.png
 permalink: /posts/
 ---
 
