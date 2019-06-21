@@ -41,9 +41,9 @@ Currently scanning: Finished!   |   Screen View: Unique Hosts
 
  Run the `Nmap` scan.
  ```console
-root@kali:~# nmap -sS -A -n 192.168.43.16
+root@kali:~# nmap -sS -A -n 192.168.1.24
 Starting Nmap 7.70 ( https://nmap.org ) at 2019-06-21 15:45 IST
-Nmap scan report for 192.168.43.16
+Nmap scan report for 192.168.1.24
 Host is up (0.00045s latency).
 Not shown: 993 closed ports
 PORT     STATE SERVICE  VERSION
@@ -99,7 +99,7 @@ Host script results:
 
 TRACEROUTE
 HOP RTT     ADDRESS
-1   0.45 ms 192.168.43.16
+1   0.45 ms 192.168.1.24
 
 OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 18.64 seconds
