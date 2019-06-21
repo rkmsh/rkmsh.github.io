@@ -241,4 +241,4 @@ root
 ```
 This was easy. Only some Research work needed.
 
-## Thanks for Learning with me. Keep Moving!!!
+## Thank You! for learning with me. Keep Moving!!!
