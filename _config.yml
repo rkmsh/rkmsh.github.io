@@ -288,7 +288,8 @@ defaults:
       path: ""
       type: posts
     values:
-      layout: wide
+      layout: single
+      classes: wide
       author_profile: true
       read_time: true
       comments: true # true
@@ -300,5 +301,6 @@ defaults:
       path: ""
       type: pages
     values:
-      layout: wide
+      layout: single
+      classes: wide
       author_profile: true
