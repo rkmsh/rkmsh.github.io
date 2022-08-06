@@ -11,7 +11,7 @@ permalink: /categories/
 <h2>HackTheBox</h2>
 <ul>
   <li><a href="https://rkmsh.github.io/timelapse/">Timelapse</a></li>
-  <li><a href="https://rkmsh.github.io/trickhtb/">Trick</a></li>
+  <li><a href="https://rkmsh.github.io/trick/">Trick</a></li>
 </ul>
 
 <h2>VulnHub</h2>
