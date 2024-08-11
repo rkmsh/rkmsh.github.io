@@ -5,7 +5,7 @@ header:
     overlay_image: "/assets/images/wall2.png"
 ---
 
-HackTheBox PRO \| CTF Player \| DevSecOps \| Backend Developer<br>
+HackTheBox Elite Hacker \| CTF Player \| DevSecOps \| Backend Developer<br>
 
 
 You can find me as Th3_Postm4n on twitter.
