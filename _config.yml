@@ -18,7 +18,7 @@ minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "
 locale                   : "en-US"
 title                    : "Information Security Writeups"
 title_separator          : "-"
-name                     : "Th3_Postm4n"
+name                     : "infosec_jet"
 description              : "Information Security Writeups"
 url                      : "https://rkmsh.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
@@ -106,7 +106,7 @@ analytics:
 
 # Site Author
 author:
-  name             : "Th3_Postm4n"
+  name             : "infosec_jet"
   avatar           : "/assets/images/PortFolio.jpeg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "CTF Player | HackTheBox PRO | DevSecOps"
   location         : "Out of Universe"
@@ -120,7 +120,7 @@ author:
       url: "https://rkmsh.github.io"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/Th3_Postm4n"
+      url: "https://twitter.com/infosec_jet"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/rkmsh"
@@ -133,7 +133,7 @@ footer:
   links:
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/Th3_Postm4n"
+      url: "https://twitter.com/infosec_jet"
 
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
